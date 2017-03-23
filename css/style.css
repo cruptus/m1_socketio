@@ -1,0 +1,30 @@
+#users > img {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+#users > img:last-child {
+    margin-bottom: 10px;
+}
+
+#users {
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #2C3E50;
+    text-align: center;
+}
+
+.content {
+    height: 70vh;
+    background-color: #ECF0F1;
+}
+
+.tchat {
+    height: 30vh;
+    background-color: #33CCCC;
+}
+
+p{
+    color: #2980B9;
+}
