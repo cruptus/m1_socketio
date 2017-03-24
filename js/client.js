@@ -13,14 +13,23 @@
      * Connecté
      */
     socket.on('logged', function () {
-       $('#login').fadeOut();
-       $('#tchat').fadeIn();
+        $('#login').fadeOut(200);
+        $('#tchat').delay(500).fadeIn(200);
+        $('#message').focus();
     });
 
     /**
-     *
+     * Envoie de message
      */
+    $('#form').submit(function (event) {
+        event.preventDefault();
+        socket.emit('newmsg', {message : $('#message').val()});
+        $('#message').val('').focus();
+    });
 
+    socket.on('newmsg', function (message) {
+
+    });
 
     /**
      * Gestion des connectées

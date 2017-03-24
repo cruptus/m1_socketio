@@ -1,3 +1,12 @@
+body{
+    background-color: #E4F1FE;
+    min-height: 150px;
+}
+
+#login{
+    margin-top: 20vh;
+}
+
 #users > img {
     margin-top: 10px;
     margin-left: auto;
@@ -10,21 +19,45 @@
 
 #users {
     height: 100vh;
-    overflow-y: auto;
-    background-color: #2C3E50;
+    min-height: 346px;
+    overflow-y: scroll;
+    background-color: #22313F;
     text-align: center;
 }
 
 .content {
     height: 70vh;
-    background-color: #ECF0F1;
+    min-height: 200px;
+    background-color: #E4F1FE;
+    overflow-y: scroll;
 }
 
 .tchat {
     height: 30vh;
-    background-color: #33CCCC;
+    min-height: 130px;
+    background-color: #34495E;
 }
 
-p{
-    color: #2980B9;
+.msg{
+    background-color: #8DC6FF;
+}
+
+h4{
+    display: inline;
+    color: #34495E;
+}
+
+h4+p{
+    display: inline;
+    font-size: 10px;
+    color: #34495E;
+    padding-left: 20px;
+    float: right;
+    line-height: 22px;
+    margin-bottom: 0;
+}
+
+hr{
+    margin: 10px 0;
+    border-color: #E4F1FE;
 }

@@ -40,5 +40,16 @@ io.sockets.on('connection', function (socket) {
         }
         delete users[me.id];
         io.sockets.emit('disusr', me);
-    })
+    });
+
+    /**
+     * On a reçu un message
+     */
+    socket.on('newmsg', function (message) {
+       message.user = me;
+       date = new Date();
+       message.h = date.getHours();
+       message.m = date.getMinutes();
+       io.sockets.emit('newmsg', message);
+    });
 });
