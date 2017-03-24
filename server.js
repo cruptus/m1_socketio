@@ -9,14 +9,18 @@ httpServer.listen(1337);
 var io = require('socket.io').listen(httpServer);
 
 var users = {};
+var messages = [];
+var history = 10;
 
 io.sockets.on('connection', function (socket) {
     var me = false;
     console.log('Nouveau utilisateur');
 
     for(var k in users){
-        console.log(users.length);
         socket.emit('newusr', users[k]);
+    }
+    for(var i in messages){
+        socket.emit('newmsg', messages[i]);
     }
 
     /**
@@ -50,6 +54,12 @@ io.sockets.on('connection', function (socket) {
        date = new Date();
        message.h = date.getHours();
        message.m = date.getMinutes();
+       if (message.m < 10)
+           message.m = '0'+message.m;
+       messages.push(message);
+       if(messages.length > history)
+           messages.shift();
+
        io.sockets.emit('newmsg', message);
     });
 });

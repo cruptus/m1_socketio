@@ -39,7 +39,15 @@ body{
 }
 
 .msg{
-    background-color: #8DC6FF;
+    background-color: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-bottom-width: 3px;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.msg > p {
+    margin-top: 10px;
 }
 
 h4{
@@ -47,7 +55,7 @@ h4{
     color: #34495E;
 }
 
-h4+p{
+.msg > h4+p{
     display: inline;
     font-size: 10px;
     color: #34495E;
@@ -55,6 +63,7 @@ h4+p{
     float: right;
     line-height: 22px;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 hr{

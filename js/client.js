@@ -1,6 +1,8 @@
 (function ($) {
     var socket = io.connect('http://localhost:1337');
 
+    $('#messages').animate({scrollTop: $('#messages').prop('scrollHeight')}, 50);
+
     $('#loginform').submit(function (event) {
         event.preventDefault();
         socket.emit('login', {
@@ -14,7 +16,7 @@
      */
     socket.on('logged', function () {
         $('#login').fadeOut(200);
-        $('#tchat').delay(500).fadeIn(200);
+        $('#room').delay(500).fadeIn(200);
         $('#message').focus();
     });
 
@@ -28,7 +30,10 @@
     });
 
     socket.on('newmsg', function (message) {
-
+        var content = $('<p></p>').text(message.message).html();
+        var username = $('<h4></h4>').text(message.user.username).html();
+        $('#messages').append('<div class="col-xs-offset-1 col-xs-10 msg"><h4>'+username+'</h4><p>'+message.h+':'+message.m+'</p><p>'+content+'</p></div>');
+        $('#messages').animate({scrollTop: $('#messages').prop('scrollHeight')}, 50);
     });
 
     /**
